@@ -1,0 +1,41 @@
+{
+  "name": "comment2raml",
+  "description": "Comment 2 Raml documentation generator",
+  "version": "0.1.0",
+  "author": {
+    "name": "Joseph Hayes",
+    "email": "objectivejoe@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/objectivejoe/comment2raml/issues"
+  },
+  "engines" : { 
+    "node" : ">=0.12" 
+  },
+  "dependencies": {
+    "commander": "2.8.x",
+    "q": "1.4.x"
+  },
+  "devDependencies": {
+    "eslint": "1.2.x",
+    "eslint-config-defaults": "4.2.x",
+    "eslint-plugin-react": "^3.2.3"
+  },
+  "homepage": "https://github.com/objectivejoe/comment2raml/raml2html",
+  "keywords": [
+    "RAML"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/objectivejoe/comment2raml.git"
+  },
+  "preferGlobal": "true",
+  "scripts": {
+    "lint": "eslint ./"
+  },
+  "bin": {
+    "comment2raml": "./bin/comment2raml"
+  }
+}

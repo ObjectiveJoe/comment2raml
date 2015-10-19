@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var program = require('commander');
+var fs = require('fs');
+var comment2html = require('..');
+var pjson = require('../package.json');
+var ramlMarker = 'RAML:'; // default marker
+
+program
+  .version(pjson.version)
+  .usage('[options] [RAML input file]')
+  .option('-i, --input [input]', 'Source code input file which includes c or c++ style commented RAML')
+  .option('-o, --output [output]', 'RAML output file including all RAML code marked and included in source input files')
+  .option('-m, --marker [marker]', 'RAML Marker to denoting first line of each RAML comment group')
+  .parse(process.argv);
+
+var input = program.input;
+var output = program.output;
+var marker = program.marker;
+
+if (!input) {
+  if (program.args.length !== 1) {
+    console.error('Error: You need to specify the RAML input file');
+    program.help();
+    process.exit(1);
+  }
+
+  input = program.args[0];
+}
+
+if (marker) {
+  ramlMarker = marker;
+}
+
+comment2html.parse(input, output, ramlMarker);
+
+
